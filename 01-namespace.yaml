@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: roboshop
+  lables:
+    name: roboshop
+    environment: dev
+    purpose: learning
