@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: annotations
+  namespace: roboshop
+  annotations:
+    project: roboshop
+    name: annotations
+    environment: dev
+    purpose: learning
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    ports:
+    - containerPort: 80
