@@ -1,0 +1,34 @@
+apiVersion: v1apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+
+# these lables are replicaset lables.
+  labels:
+    project: roboshop
+    purpose: rs-demo
+    tier: frontend
+    component: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      project: roboshop
+      purpose: rs-demo
+      tier: frontend
+      component: frontend
+
+      # this is pod definition, which is used as template for creating pods by replicaset
+  template:
+    metadata:
+      labels:
+        project: roboshop
+        purpose: rs-demo
+        tier: frontend
+        component: frontend
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:stable-alpine3.23-perl
+        ports:
+        - containerPort: 80
